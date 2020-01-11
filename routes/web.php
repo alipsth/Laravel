@@ -38,6 +38,77 @@ Route::get('pesanan/{makan?}/{minum?}/{harga?}',function($mkn=null,$mnm=null,$hr
 	}
 });
 
+//Memanggil semua model 
+Route::get('/testmodel1',function(){
+	$query = App\Post::all();
+	return $query;
+});
+
+//Mencari model berdasarkan id
+Route::get('/testmodel2',function(){
+	$query = App\Post::Find(1);
+	return $query;
+});
+
+//Mencari model berdasarkan title
+Route::get('/testmodel3',function(){
+	$query = App\Post::where('title','like','%Tips Cepat Pintar%')->get();
+	return $query;
+});
+//Mengubah record/isi model (hapus semua isi function)
+Route::get('/testmodel4',function(){
+	$query = App\Post::Find(1);
+	$query->title='Jorojosss';
+	$query->save();
+	return $query;
+});
+
+//Menghapus record/isi model (hapus semua isi function)
+Route::get('/testmodel5',function(){
+	$query = App\Post::Find(2);
+	$query->delete();
+});
+
+//Menambah record
+Route::get('/testmodel6',function(){
+	$query =new App\Post;
+	$query->title='7 Tips Menjadi Pintar';
+	$query->content ="banyak lah sedekah";
+	$query->save();
+	return $query;
+});
+
+//Tugas penggajian
+Route::get('/penggajian',function(){
+	$query = App\Gajian::all();
+	return $query;
+});
+
+Route::get('/penggajian1',function(){
+	$query = App\Gajian::where('agama','=','islam')->get();
+	return $query;
+});
+
+//Untuk memanggil id,nama dan agama aja 
+Route::get('/penggajian2',function(){
+	$query = App\Gajian::select('id','nama','agama')->get();
+	return $query;
+});
+
+
+
+Route::get('/penggajian4',function(){
+	$gaji = New App\Gajian();
+	$gaji->nama ='Indah Mambo';
+	$gaji->jabatan ='Sekretaris';
+	$gaji->jenis_kelamin ='Perempuan';
+	$gaji->alamat ='Bojong Honeng';
+	$gaji->agama ='Islam';
+	$gaji->total_gaji ='1.000.000.000(SAMILIUER)';
+	$gaji->save();
+	return $gaji;
+});
+
 // Route::get('profil1',function(){
 // 	return view ('profil1');
 // });
