@@ -109,22 +109,64 @@ Route::get('/penggajian4',function(){
 	return $gaji;
 });
 
-// Route::get('profil1',function(){
-// 	return view ('profil1');
-// });
+Route::get('profil1',function(){
+	return view ('profil1');
+});
 
-// Route::get('profil2',function(){
-// 	return view ('profil2');
-// });
+Route::get('profil2',function(){
+	return view ('profil2');
+});
 
-// Route::get('profil3',function(){
-// 	return view ('profil3');
-// });
+Route::get('profil3',function(){
+	return view ('profil3');
+});
 
-// Route::get('profil4',function(){
-// 	return view ('profil4');
-// });
+Route::get('profil4',function(){
+	return view ('profil4');
+});
 
-// Route::get('profil5',function(){
-// 	return view ('profil5');
-// });
+Route::get('profil5',function(){
+	return view ('profil5');
+});
+
+Route::get('hallo','SekolahController@halo');
+Route::get('dunia','SekolahController@dunia');
+Route::get('alam','SekolahController@alam');
+Route::get('semesta','SekolahController@semesta');
+Route::get('langit','SekolahController@langit');
+Route::get('bumi','SekolahController@bumi');
+Route::get('mars','SekolahController@mars');
+Route::get('jupiter','SekolahController@jupiter');
+Route::get('alien','SekolahController@alien');
+Route::get('planet','SekolahController@planet');
+Route::get('warnakucing/{warna?}','SekolahController@jeniskucing');
+Route::get('beli/{jenis?}/{harga?}','SekolahController@meser');
+
+
+//CRUD BOOK
+Route::get('buku','BookController@index');
+Route::get('buku-create/{jdl}','BookController@create');
+Route::get('buku-show/{jdl}','BookController@show');
+Route::get('buku-edit/{id}/{jdl}','BookController@edit');
+Route::get('buku-delete/{id}','BookController@hapus');
+Route::get('buku-select','BookController@select');
+Route::get('buku-record','BookController@record');
+
+
+//Pembuatan CRUD
+// Route::get('crud','CrudController@index');
+// Route::get('crud/create','CrudController@create');
+// Route::POST('crud','CrudController@store');
+// Route::get('crud/{id}','CrudController@show');
+// Route::get('crud/{id}/edit','CrudController@edit');
+// Route::PUT('crud/{id}','CrudController@update');
+// Route::DELETE('crud/{id}','CrudController@destroy');
+Route::resource('crud','CrudController');
+
+
+//passing data
+Route::get('passing','PracticeController@pass');
+Route::get('passing1','PracticeController@pass1');
+Route::get('latsol','PracticeController@latsol');
+
+Route::get('index','BarangController@index');
